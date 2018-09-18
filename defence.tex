@@ -91,9 +91,11 @@
               \def\l{7.2};
               \def\h{5};
               \def\d{0.8};
-              \node[draw = blue!70, fill = blue!50, MyArrow, rotate=270] at (3.6, -2) {\phantom{arrow}};
-              \node[anchor=west, align=left] at (4.5,-2) {Two step anodizing\\ in oxalic acid (\ce{C2H2O4})\\ at $\SI{0}{\celsius}$};
+              %\node[draw = blue!70, fill = blue!50, MyArrow, rotate=270] at (2.6, -2) {\phantom{arrow}};
+              %\node[anchor=west, align=left] at (3.6,-2) {Two step anodizing\\ in oxalic acid\\ (\ce{C2H2O4}) at $\SI{0}{\celsius}$};
               %\draw[fill=blue!50, color=blue] (3.6,-3)--(2.6,-2)--(3.1,-2)--(3.1,-1)--(4.2,-1)--(4.2,-2)--(4.6,-2)--(3.6,-3);
+              \fill[color=blue!50, draw=blue] (1.5,-.5)--(5.7,-.5)--(5.7,-2.5)--(6.2,-2.5)--(3.6,-4)--(1,-2.5)--(1.5,-2.5)--cycle;
+              \node[anchor=north, align=left] at (3.6,-1) {Two step anodizing\\ in oxalic acid\\ (\ce{C2H2O4}) at $\SI{0}{\celsius}$};
               \clip (0.02,0) rectangle (\l - 0.02,\h);
               \fill[gray] (0,0) rectangle (\l,\h);
               \draw[color=orange,<->] (0.6,0) -- (0.6,\h);
@@ -104,8 +106,10 @@
                \def\l{7.2};
                \def\h{4};
                \def\d{0.6};
-               \node[draw = blue!70, fill = blue!50, MyArrow] at (11, 2) {\phantom{arrow}};
-               \node[anchor=south, align=left] at (11,3) {Immersion in\\ $\underbrace{\SI{27,2}{\gram}\quad\ce{CuCl2}}_{\text{copper chloride}} + \underbrace{\SI{0,2}{\l}\quad\ce{HCL}(\SI{37}{\percent})}_{\text{hydrochloric acid}} + \underbrace{\SI{0,8}{\l}\quad\ce{H2O}}_{\text{water}}$};
+               %\node[draw = blue!70, fill = blue!50, MyArrow] at (11, 2) {\phantom{arrow}};
+               %\node[anchor=south, align=left] at (11,3) {Immersion in\\ $\underbrace{\SI{27,2}{\gram}\quad\ce{CuCl2}}_{\text{copper chloride}}$\\ $ + \underbrace{\SI{0,2}{\l}\quad\ce{HCL}(\SI{37}{\percent})}_{\text{hydrochloric acid}}$\\ $+ \underbrace{\SI{0,8}{\l}\quad\ce{H2O}}_{\text{water}}$};
+               \fill[color=blue!50, draw=blue] (8.5,0)--(8.5,4)--(12,4)--(12,4.5)--(13,2)--(12,-.5)--(12,0)--cycle;
+               \node[anchor=west, align=left] at (9,2) {Immersion in\\ $\underbrace{\SI{27,2}{\gram}\quad\ce{CuCl2}}_{\text{copper chloride}}$\\ $ + \underbrace{\SI{0,2}{\l}\quad\ce{HCL}(\SI{37}{\percent})}_{\text{hydrochloric acid}}$\\ $+ \underbrace{\SI{0,8}{\l}\quad\ce{H2O}}_{\text{water}}$};
                \begin{scope}
                \clip (0.02,0) rectangle (\l - 0.02,\h);
                \fill[gray] (0,0) rectangle (\l,\h);
@@ -126,7 +130,10 @@
                 \def\l{7.2};
                 \def\h{3.5};
                 \def\d{0.6};
-                \node[draw = blue!70, fill = blue!50, MyArrow, rotate=90] at (3.6, 6) {\phantom{arrow}};
+                %\node[draw = blue!70, fill = blue!50, MyArrow, rotate=90] at (4.6, 6) {\phantom{arrow}};
+                %\node[anchor=east, align=left] at (4.6,6) {Floating on\\ phosphoric acid\\ (\ce{H3O4P})};
+                \fill[color=blue!50, draw=blue] (1.5,4)--(5.7,4)--(5.7,7)--(6.2,7)--(3.6,8)--(1,7)--(1.5,7)--cycle;
+                \node[anchor=north, align=left] at (3.6,7) {Floating on\\ phosphoric acid\\ (\ce{H3O4P}) till milky\\ aspects appear\\ plus $\SI{15}{\minute}$};
                 \begin{scope}
                 \clip (0.02,0) rectangle (\l - 0.02,\h);
                 %\fill[gray] (0,0) rectangle (\l,\h);
@@ -153,8 +160,7 @@
   \end{frame}
 
   \begin{frame}{Experimental setup}
-    \begin{itemize}
-    \end{itemize}
+
   \end{frame}
 
   \begin{frame}{Data evaluation}
