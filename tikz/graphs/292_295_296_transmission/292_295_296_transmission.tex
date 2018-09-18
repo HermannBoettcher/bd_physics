@@ -1,0 +1,159 @@
+\documentclass[../../../thesis.tex]{subfiles}
+
+\begin{document}
+  \begin{figure}[tb]
+		\centering
+    \subfloat[]{
+    \tikzsetnextfilename{292_transmission}
+      \begin{tikzpicture}
+          \def\PrelMin{.86}
+  				\def\PrelMax{1}
+  				\def\TransMin{1e-4}
+  				\def\TransMax{1}
+  				\def\LfMin{0}
+  				\def\LfMax{2}
+          %
+  				% transmission
+  				\begin{axis}[
+            /tikz/line join=bevel,
+            width=0.45*\textwidth,
+            height=0.45*\textwidth,
+  					ymode=log,
+  					%axis y line*=right,
+  					line width = 1pt,
+  					xmin = \PrelMin, xmax = \PrelMax,
+  					ymin = \TransMin, ymax = \TransMax,
+  					ylabel = {Transmission $T$},
+  					xlabel = {Relative pressure $P_\mathrm{rel}$},
+  					%ytick = {1,1e-1,1e-2,1e-3,1e-4},
+  					grid,
+            legend style={at={(0,0)}, legend columns=1, anchor=south west},
+  					]
+  					% Add plots
+  					\addplot[mark=none, color=red] table [x=Prel,y=transmission, col sep=comma]{tikz/graphs/292_295_296_transmission/292d_cond_1.csv};
+  					\addlegendentry{$T_\mathrm{cond}^\mathrm{292d}$}
+  					\addplot[mark=none, color=red!50] table [x=Prel,y=transmission, col sep=comma]{tikz/graphs/292_295_296_transmission/292d_evap_1.csv};
+  					\addlegendentry{$T_\mathrm{evap}^\mathrm{292d}$}
+  				\end{axis}
+        \end{tikzpicture}
+        \label{fig:292-trans}}
+    \hfill
+    \subfloat[]{
+    \tikzsetnextfilename{296_transmission}
+      \begin{tikzpicture}
+          \def\PrelMin{.86}
+  				\def\PrelMax{1}
+  				\def\TransMin{1e-4}
+  				\def\TransMax{1}
+  				\def\LfMin{0}
+  				\def\LfMax{2}
+          %
+  				% transmission
+  				\begin{axis}[
+            /tikz/line join=bevel,
+            width=0.45*\textwidth,
+            height=0.45*\textwidth,
+  					ymode=log,
+  					%axis y line*=right,
+  					line width = 1pt,
+  					%	minor x tick num= ,
+  					%	minor y tick num= ,
+  					xmin = \PrelMin, xmax = \PrelMax,
+  					ymin = \TransMin, ymax = \TransMax,
+  					ylabel = {Transmission $T$},
+  					xlabel = {Relative pressure $P_\mathrm{rel}$},
+  					%ytick = {10,1,1e-1,1e-2,1e-3},
+  					grid,
+            legend style={at={(0,0)}, legend columns=1, anchor=south west},
+  					%title={Membrane 296b - $\SI{60}{\micro\meter}$}
+  					]
+  					% Add plots
+  					\addplot[mark=none, color=red] table [x=Prel,y=transmission]{tikz/graphs/292_295_296_transmission/296b_op_cond_1.txt};
+  					\addlegendentry{$T_\mathrm{cond}^\mathrm{296b''}$}
+  					\addplot[mark=none, color=red!50] table [x=Prel,y=transmission]{tikz/graphs/292_295_296_transmission/296b_op_evap_1.txt};
+  					\addlegendentry{$T_\mathrm{evap}^\mathrm{296b''}$}
+  				\end{axis}
+        \end{tikzpicture}
+        \label{fig:296-trans}
+    }
+    \\
+    \subfloat[]{
+    \tikzsetnextfilename{295_transmission}
+      \begin{tikzpicture}
+          \def\PrelMin{.86}
+  				\def\PrelMax{1}
+  				\def\TransMin{1e-4}
+  				\def\TransMax{1}
+  				\def\LfMin{0}
+  				\def\LfMax{2}
+          %
+  				% transmission
+  				\begin{axis}[
+            /tikz/line join=bevel,
+            width=0.45*\textwidth,
+            height=0.45*\textwidth,
+  					ymode=log,
+  					%axis y line*=right,
+  					line width = 1pt,
+  					%	minor x tick num= ,
+  					%	minor y tick num= ,
+  					xmin = \PrelMin, xmax = \PrelMax,
+  					ymin = \TransMin, ymax = \TransMax,
+  					ylabel = {Transmission $T$},
+  					xlabel = {Relative pressure $P_\mathrm{rel}$},
+  					%ytick = {10,1,1e-1,1e-2,1e-3},
+  					grid,
+            legend style={at={(0,0)}, legend columns=1, anchor=south west},
+  					%title={Membrane 296b - $\SI{60}{\micro\meter}$}
+  					]
+  					% Add plots
+  					\addplot[mark=none, color=red] table [x=Prel,y=transmission]{tikz/graphs/292_295_296_transmission/295d_cond_2.txt};
+  					\addlegendentry{$T_\mathrm{cond}^\mathrm{295d'}$}
+  					\addplot[mark=none, color=red!50] table [x=Prel,y=transmission]{tikz/graphs/292_295_296_transmission/295d_evap_2.txt};
+  					\addlegendentry{$T_\mathrm{evap}^\mathrm{295d'}$}
+  				\end{axis}
+        \end{tikzpicture}
+        \label{fig:295-trans}
+    }
+    \hfill
+    \subfloat[]{
+    \tikzsetnextfilename{295f200ALD_transmission}
+      \begin{tikzpicture}
+          \def\PrelMin{.5}
+  				\def\PrelMax{1}
+  				\def\TransMin{1e-4}
+  				\def\TransMax{1}
+  				\def\LfMin{0}
+  				\def\LfMax{2}
+          %
+  				% transmission
+  				\begin{axis}[
+            /tikz/line join=bevel,
+            width=0.45*\textwidth,
+            height=0.45*\textwidth,
+  					ymode=log,
+  					line width = 1pt,
+  					xmin = \PrelMin, xmax = \PrelMax,
+  					ymin = \TransMin, ymax = \TransMax,
+  					ylabel = {Transmission $T$},
+  					xlabel = {Relative pressure $P_\mathrm{rel}$},
+  					%ytick = {10,1,1e-1,1e-2},
+  					grid,
+            legend style={at={(0,0)}, legend columns=1, anchor=south west},
+  					%title={Membrane 296b - $\SI{60}{\micro\meter}$}
+  					]
+  					% Add plots
+  					\addplot[mark=none, color=red] table [x=Prel,y=transmission]{tikz/graphs/292_295_296_transmission/295f200ALD_cond_1.txt};
+  					\addlegendentry{$T_\mathrm{cond}^\mathrm{295f''}$}
+  					\addplot[mark=none, color=red!50] table [x=Prel,y=transmission]{tikz/graphs/292_295_296_transmission/295f200ALD_evap_1.txt};
+  					\addlegendentry{$T_\mathrm{evap}^\mathrm{295f''}$}
+  				\end{axis}
+        \end{tikzpicture}
+        \label{fig:295f200ALD-trans}}
+    \caption{$P_\mathrm{rel}$ transmission isotherms of the membranes 292d \protect\subref{fig:292-trans}, 296b' \protect\subref{fig:296-trans}, 295d' \protect\subref{fig:295-trans},
+    and 295f'' \protect\subref{fig:295f200ALD-trans}. All membranes have open pores. Unlike the isotherm of membrane 292d, the transmission drops of
+    condensation and evaporation are of the same magnitude. The magnitudes of condensation and evaporation dip are reversed in respect to membrane 292d for membrane 295f 200ALD.}
+    \label{fig:292-295-296-transmission}
+  \end{figure}
+
+\end{document}

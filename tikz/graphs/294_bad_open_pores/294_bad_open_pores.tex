@@ -1,0 +1,78 @@
+\documentclass[../../../thesis.tex]{subfiles}
+
+\begin{document}
+  \begin{figure}[htb]
+		\centering
+    \tikzsetnextfilename{294}
+    \begin{tikzpicture}
+        \def\PrelMin{.86}
+				\def\PrelMax{1}
+				\def\TransMin{1e-8}
+				\def\TransMax{1}
+				\def\LfMin{0}
+				\def\LfMax{2}
+        %
+        \begin{axis}[
+          /tikz/line join=bevel,
+          width=0.8*\textwidth,
+          height=0.5*\textwidth,
+          grid,
+					axis y line*=left,
+          legend style={at={(0,.5)}, legend columns=1, anchor=north west},
+          every axis plot,
+					axis y line*=left,
+					line width = 1pt,
+					xmin = \PrelMin, xmax = \PrelMax,
+					ymin = \LfMin, ymax = \LfMax,
+					xlabel = {Relative pressure $P_\mathrm{rel}$},
+					ylabel = {Liquid fraction $LF$},
+					ytick = {0,0.25,0.50,0.75,1},
+          ]
+					% Add plots
+          \addplot +[no markers, raw gnuplot, line width = 1pt,red]
+          gnuplot{plot "tikz/graphs/294_bad_open_pores/PNO_OuvertSol.qgra.text" index 0;};
+          \addlegendentry{$LF_\mathrm{cond}^\mathrm{294cp}$}
+          \addplot +[no markers, raw gnuplot, line width = 1pt,red!50]
+          gnuplot{plot "tikz/graphs/294_bad_open_pores/PNO_OuvertSol.qgra.text" index 1;};
+          \addlegendentry{$LF_\mathrm{evap}^\mathrm{294cp}$}
+          \addplot +[no markers, raw gnuplot, line width = 1pt,blue]
+          gnuplot{plot "tikz/graphs/294_bad_open_pores/PO.qgra.text" index 0;};
+          \addlegendentry{$LF_\mathrm{cond}^\mathrm{294op}$}
+          \addplot +[no markers, raw gnuplot, line width = 1pt,blue!50]
+          gnuplot{plot "tikz/graphs/294_bad_open_pores/PO.qgra.text" index 1;};
+          \addlegendentry{$LF_\mathrm{evap}^\mathrm{294op}$}
+        \end{axis}
+        %
+        \begin{axis}[
+          /tikz/line join=bevel,
+          width=0.8*\textwidth,
+          height=0.5*\textwidth,
+          ymode=log,
+          axis y line*=right,
+          line width = 1pt,
+          xmin = \PrelMin, xmax = \PrelMax,
+          ymin = \TransMin, ymax = \TransMax,
+          ylabel = {Transmission $T$},
+          ytick = {1e-1,1e-2,1e-3,1e-4},
+          ymajorgrids=true,
+          legend style={at={(0,0.5)}, legend columns=1, anchor=south west},
+          ]
+					% Add plots
+          \addplot +[no markers, raw gnuplot, line width = 1pt,red]
+          gnuplot{plot "tikz/graphs/294_bad_open_pores/PNO_OuvertSol.qgra.text" using ($1):($2*0.45) index 2;};
+          \addlegendentry{$T_\mathrm{cond}^\mathrm{294cp}$}
+          \addplot +[no markers, raw gnuplot, line width =1pt,red!50]
+          gnuplot{plot "tikz/graphs/294_bad_open_pores/PNO_OuvertSol.qgra.text" using ($1):($2*0.45) index 3;};
+          \addlegendentry{$T_\mathrm{evap}^\mathrm{294cp}$}
+          \addplot +[no markers, raw gnuplot, line width = 1pt,blue]
+          gnuplot{plot "tikz/graphs/294_bad_open_pores/PO.qgra.text" using ($1):($2*0.45) index 2;};
+          \addlegendentry{$T_\mathrm{cond}^\mathrm{294op}$}
+          \addplot +[no markers, raw gnuplot, line width =1pt,blue!50]
+          gnuplot{plot "tikz/graphs/294_bad_open_pores/PO.qgra.text" using ($1):($2*0.45) index 3;};
+          \addlegendentry{$T_\mathrm{evap}^\mathrm{294op}$}
+        \end{axis}
+    \end{tikzpicture}
+    \label{fig:294-bad-open-pores}
+    \caption{Bad open pores illustrated by the comparison of a closed pore isotherm and a open pore isotherm of membrane 294a.}
+  \end{figure}
+\end{document}
