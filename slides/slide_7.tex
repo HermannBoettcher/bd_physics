@@ -1,0 +1,104 @@
+\documentclass[../defence.tex]{subfiles}
+
+\begin{document}
+  \begin{frame}{Condensation and evaporation in a cylindrical closed pore}
+    \begin{columns}[onlytextwidth, T]
+      \column{\dimexpr\linewidth / 3}
+    %\tikzsetnextfilename{cp_visual_loop}
+          \begin{tikzpicture}[scale=0.7, transform shape, every node/.style = {font = \small},
+                              pore/.style = {line width = 0.1cm, color = gray},
+                              film/.style = {line width = 0.1cm, color = blue!50},
+                              thick_film/.style = {line width = 0.3cm, color = blue!50},
+                              graph_label/.style={color = gray, line width = 0.05cm},
+                              pore_collapse/.style = {color = blue!50, line width = 0.07cm, ->},
+                              MyArrow/.style={single arrow, draw, minimum width=8mm, minimum height=3mm,
+                              inner sep=0mm, single arrow head extend=1mm}]
+              \tikzset{fontscale/.style = {font=\relsize{#1}}}
+              \tikzset{MyArrow/.style={single arrow, draw, minimum width=8mm, minimum height=5mm, inner sep=0mm, single arrow head extend=1mm}}
+              \pgfdeclarelayer{bg}    % declare background layer
+              \pgfdeclarelayer{bbg}    % declare backbackground layer
+              \pgfsetlayers{bbg,bg,main}  % set the order of the layers (main is the standard layer)
+              \tikzstyle arrowstyle=[scale=2]
+              \tikzstyle directed=[postaction={decorate,decoration={markings,
+                  mark=at position .65 with {\arrow[arrowstyle]{stealth}}}}]
+              \begin{scope}
+                  \foreach \Xcoor in {0, 2.8}
+                  \draw[pore] (\Xcoor,3.5) -- (\Xcoor,0) -- (\Xcoor + 1.4,0) -- (\Xcoor + 1.4,3.5);
+                  \node[draw = red!70, fill = red!50, MyArrow] at (2.05, 2.5) {\phantom{arrow}};
+                  \node[draw = red!70, fill = red!50, MyArrow, rotate = 180] at (2.1, 1) {\phantom{arrow}};
+                  \begin{pgfonlayer}{bg}
+                      \fill[blue!50] (2.8,0) -- (2.8,3.5)  -- (4.2,3.5) -- (4.2,0) -- cycle ;
+                      \fill[blue!50] (0,0) -- (0,3.5)  -- (1.4,3.5) -- (1.4,0) -- cycle ;
+                      \path [draw = none, fill = white](3,3.6) arc[start angle = -180, end angle = 0, radius=0.5];
+                      \fill[white] (1.2,3.55) -- (0.2,3.55) -- (0.2,0.7) arc[start angle = -180, end angle = 0, radius=0.5] -- cycle;
+                      \draw[color = blue!50, ->, line width = 0.5mm] (0.7,0.2) -- (0.7,3.3);
+                      \draw[color = white, ->, line width = 0.5mm] (3.5,3.3) -- (3.5,0.4);
+                  \end{pgfonlayer}
+              \end{scope}
+          \end{tikzpicture}
+      \column{\dimexpr\linewidth / 3 * 2}
+        \begin{block}{Closed cylindrical pore}
+          Condensation at equilibrium pressure and \\
+          evaporation at equilibrium pressure \\
+          leads to \textbf{disappearance of the hysteresis.}
+        \end{block}
+    \end{columns}
+    %\tikzsetnextfilename{cp_loop}
+    \begin{tikzpicture}[scale=0.75, transform shape, every node/.style = {font = \small},
+                        pore/.style = {line width = 0.1cm, color = gray},
+                        film/.style = {line width = 0.1cm, color = blue!50},
+                        thick_film/.style = {line width = 0.3cm, color = blue!50},
+                        graph_label/.style={color = gray, line width = 0.05cm},
+                        pore_collapse/.style = {color = blue!50, line width = 0.07cm, ->},
+                        MyArrow/.style={single arrow, draw, minimum width=8mm, minimum height=5mm,
+                        inner sep=0mm, single arrow head extend=1mm}]
+        \pgfdeclarelayer{bg}    % declare background layer
+        \pgfdeclarelayer{bbg}    % declare backbackground layer
+        \pgfsetlayers{bbg,bg,main}  % set the order of the layers (main is the standard layer)
+        \tikzset{fontscale/.style = {font=\relsize{#1}}}
+        \tikzset{MyArrow/.style={single arrow, draw, minimum width=8mm, minimum height=5mm, inner sep=0mm, single arrow head extend=1mm}}
+        \tikzstyle arrowstyle=[scale=2]
+        \tikzstyle directed=[postaction={decorate,decoration={markings,
+            mark=at position .65 with {\arrow[arrowstyle]{stealth}}}}]
+        \begin{scope}
+            \draw (0,0) -- (0,3.5);
+            \draw (12,0) -- (12,3.5);
+            \node[rotate=90] at (-0.7,1.75) {Liquid fraction};
+            \draw (0,0) -- (12,0);
+            \draw (0,3.5) -- (12,3.5);
+            \node at (6,-0.7) {Pressure};
+            %straight evap
+            \draw[color = blue, postaction={decorate,decoration={markings,
+            mark=at position .25 with {\arrow[arrowstyle]{stealth}}}}] (11,3.5) -- (9,3.4) -- (9,0.45) -- (0,0);
+            %straight cond
+            \draw[color = blue, postaction={decorate,decoration={markings,
+            mark=at position .7 with {\arrow[arrowstyle]{stealth}}}}] (0,0) -- (9,0.45) -- (9,3.4) -- (11,3.5);
+            %funnelled 1 cond
+            \draw[color = red, postaction={decorate,decoration={markings,
+            mark=at position .65 with {\arrow[arrowstyle]{stealth}}}}] (0,0) -- (7.25,0.3625) -- (9,3.4) -- (11,3.5);
+            %funnelled 1 evap
+            \draw[color = red, postaction={decorate,decoration={markings,
+            mark=at position .3 with {\arrow[arrowstyle]{stealth}}}}] (11,3.5) -- (9,3.4) -- (7.25,0.3625) -- (0,0);
+            %DASHED
+            \draw[dashed] (11,0) -- (11,3.5);  %psat
+            \draw[dashed] (9,0) -- (9,0.15);  %psp
+            \draw[dashed] (8,0) -- (8,0.15);  %peq
+            \draw[dashed] (8.5,3.5) -- (8.5,3.35);  %psp
+            \draw[dashed] (7.25,3.5) -- (7.25,3.35);  %peq
+            %labels
+            \node at (-0.2,-0.3) {$0$};
+            \node at (-0.2,3.5) {$1$};
+            \node at (11,-0.3) {$P_\mathrm{sv}$};
+            \node at (8,-0.3) {$P_\mathrm{eq}(d)$};
+            \node at (9,-0.3) {$P_\mathrm{sp}(d)$};
+            \node at (7.25,3.8) {$P_\mathrm{eq}(d')$};
+            \node at (8.5,3.8) {$P_\mathrm{sp}(d')$};
+            \draw[color=gray, line width=1mm] (0.5,3) -- (0.5,2.5) -- (0.8,2.5) -- (0.8,3);
+            \draw[color=blue] (1,2.75) -- (1.5,2.75);
+            \draw[color=gray, line width=1mm] (0.5,2.3) -- (0.55,1.8) -- (0.75,1.8) -- (0.8,2.3);
+            \draw[color=red] (1,2.05) -- (1.5,2.05);
+        \end{scope}
+    \end{tikzpicture}
+  \end{frame}
+
+\end{document}
