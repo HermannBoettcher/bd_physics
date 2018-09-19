@@ -6,77 +6,21 @@
     \begin{columns}[onlytextwidth, T]
       \column{\dimexpr\linewidth / 3}
         %\tikzsetnextfilename{vs_time_iso}
-        \begin{tikzpicture}[scale=0.4, transform shape]
-          \def\tMin{0}
-          \def\tMax{17}
-          \def\PMin{0]}
-          \def\PMax{160}
-          \def\LineWidth{.5pt}
-          %
-          \begin{axis}[
-            /tikz/line join=bevel,
-            %width=0.45*\textwidth,
-            %height=0.45*\textwidth,
-            line width = 1pt,
-            %	minor x tick num= ,
-            %	minor y tick num= ,
-            xmin = \tMin, xmax = \tMax,
-            ymin = \PMin, ymax = \PMax,
-            xlabel = {Normalized time $t$ in $\si\hour$},
-            ylabel = {Pressure inside the cell $P_\mathrm{cell}$ in $\si{\milli\bar}$},
-            %	legend entries={Avec,Sans},
-            grid,
-            legend style={at={(1,0)}, legend columns=1, anchor=south east},
-            every axis plot,
-            ]
-            % Add plots
-            \addplot[mark=none, color=blue] table [x=t,y=Prel]{tikz/graphs/295b_membrane_vs_nomembrane/nomembrane.txt};
-            \addlegendentry{no membrane}
-            \addplot[mark=none, color=red] table [x=t,y=Prel]{tikz/graphs/295b_membrane_vs_nomembrane/membrane.txt};
-            \addlegendentry{membrane 295b}
-          \end{axis}
-        \end{tikzpicture}
         \pause
 
         %\tikzsetnextfilename{vs_pressure_iso}
-        \begin{tikzpicture}[scale=0.4, transform shape]
-                \def\tMin{-10}
-                \def\tMax{160}
-                \def\PMin{-40]}
-                \def\PMax{60}
-                \def\LineWidth{.5pt}
-                %
-                \begin{axis}[
-                  /tikz/line join=bevel,
-                  %width=0.45*\textwidth,
-                  %height=0.45*\textwidth,
-                  line width = 1pt,
-                  %	minor x tick num= ,
-                  %	minor y tick num= ,
-                  xmin = \tMin, xmax = \tMax,
-                  ymin = \PMin, ymax = \PMax,
-                  xlabel = {Pressure inside the cell $P_\mathrm{cell}$ in $\si{\milli\bar}$},
-                  ylabel = {Time derivative $\dot{P}_\mathrm{cell}$ in $\si{\milli\bar\per\hour}$},
-                  %	legend entries={Avec,Sans},
-                  grid,
-                  legend style={at={(0,0)}, legend columns=1, anchor=south west},
-                  every axis plot,
-                  ]
-                  % Add plots
-                  \addplot[mark=none, color=blue] table [x=Prel,y=dPcell]{tikz/graphs/295b_membrane_vs_nomembrane/nomembrane.txt};
-                  \addlegendentry{no membrane}
-                  \addplot[mark=none, color=red] table [x=Prel,y=dPcell]{tikz/graphs/295b_membrane_vs_nomembrane/membrane.txt};
-                  \addlegendentry{membrane 295b}
-                \end{axis}
-        \end{tikzpicture}
       \pause
 
-      \column{\dimexpr\linewidth / 3}
+      \column{\dimexpr\linewidth / 3 * 2}
         \begin{block}{Computation}
-          The flow rate depends on the opening of the \textsc{Pfeiffer} microvalve. For the empty cell (no membrane) it is\\
-          $\dot{n}=\frac{V_\mathrm{cell}}{RT_\mathrm{cell}}\cdot\dot{P}_\mathrm{cell}$.\\
-          Assuming an equivalent flow rate at a given pressure $P_\mathrm{cell}$ yields\\
-          %$n_\mathrm{membrane}=\frac{V}{RT}\int^{t_2}_{0} \left( \dot{P}_\mathrm{nomembrane}(t_1') - \dot{P}_\mathrm{membrane}(t_2') \right)\mathrm{d}t_2'$.
+          \begin{itemize}
+            \begin{tiny}
+            \item The flow rate depends on the opening of the \textsc{Pfeiffer} microvalve.
+            \item Empty cell: $\dot{n}=\frac{V_\mathrm{cell}}{RT_\mathrm{cell}}\cdot\dot{P}_\mathrm{cell}$
+            \item Flow rate conservation: $\dot{n}_\mathrm{mem}^\mathrm{no}(P_\mathrm{mem}^\mathrm{no}(t_\mathrm{mem}^\mathrm{no}))=\dot{n}_\mathrm{mem}(P_\mathrm{mem}(t_\mathrm{mem}))$
+            \item $n_\mathrm{mem}=\frac{V}{RT}\int^{t_\mathrm{mem}}_{0} \left( \dot{P}_\mathrm{mem}^\mathrm{no}(P_\mathrm{mem}^\mathrm{no}=P_\mathrm{mem}) - \dot{P}_\mathrm{mem}(P_\mathrm{mem}) \right)\mathrm{d}t_\mathrm{mem}'$
+            \end{tiny}
+          \end{itemize}
         \end{block}
 
     \end{columns}
