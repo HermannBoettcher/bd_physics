@@ -4,7 +4,7 @@
   \begin{frame}{Wafer inhomogeneity}
     \begin{columns}[onlytextwidth, T]
       \column{\dimexpr\linewidth / 11 * 5}
-        \begin{block}{Open pore membranes wafer 295}
+        \begin{block}{Open pore membranes of wafer 295}
           \tikzsetnextfilename{295_op}
           \begin{tikzpicture}[scale=0.5, transform shape]
               \def\PrelMin{.88}
@@ -27,29 +27,29 @@
       					xlabel = {Relative pressure $P_\mathrm{rel}$},
       					ylabel = {Liquid fraction $LF$},
       					ytick = {0,0.25,0.50,0.75,1},
-                title={Open pore membranes of wafer 295},
+                %title={Open pore membranes of wafer 295},
                 ]
       					% Add plots
       					\addplot[mark=none, color=red] table [x=Prel,y=liquid_fraction]{tikz/graphs/wafer_inhomogeneities/295c_cond_2.txt};
-      					\addlegendentry{$LF_\mathrm{cond}^\mathrm{295c'}$}
+      					%\addlegendentry{$LF_\mathrm{cond}^\mathrm{295c'}$}
       					\addplot[mark=none, color=red!50] table [x=Prel,y=liquid_fraction]{tikz/graphs/wafer_inhomogeneities/295c_evap_2.txt};
-      					\addlegendentry{$LF_\mathrm{evap}^\mathrm{295c'}$}
+      					%\addlegendentry{$LF_\mathrm{evap}^\mathrm{295c'}$}
       					\addplot[mark=none, color=blue] table [x=Prel,y=liquid_fraction]{tikz/graphs/wafer_inhomogeneities/295d_cond_2.txt};
-      					\addlegendentry{$LF_\mathrm{cond}^\mathrm{295d'}$}
+      					%\addlegendentry{$LF_\mathrm{cond}^\mathrm{295d'}$}
                 \addplot[mark=none, color=blue!50] table [x=Prel,y=liquid_fraction]{tikz/graphs/wafer_inhomogeneities/295d_evap_2.txt};
-      					\addlegendentry{$LF_\mathrm{evap}^\mathrm{295d'}$}
+      					%\addlegendentry{$LF_\mathrm{evap}^\mathrm{295d'}$}
       					\addplot[mark=none, color=green] table [x=Prel,y=liquid_fraction]{tikz/graphs/wafer_inhomogeneities/295e_cond_1.txt};
-      					\addlegendentry{$LF_\mathrm{cond}^\mathrm{295e'}$}
+      					%\addlegendentry{$LF_\mathrm{cond}^\mathrm{295e'}$}
       					\addplot[mark=none, color=green!50] table [x=Prel,y=liquid_fraction]{tikz/graphs/wafer_inhomogeneities/295e_evap_1.txt};
-      					\addlegendentry{$LF_\mathrm{evap}^\mathrm{295e'}$}
+      					%\addlegendentry{$LF_\mathrm{evap}^\mathrm{295e'}$}
       					\addplot[mark=none, color=orange] table [x=Prel,y=liquid_fraction]{tikz/graphs/wafer_inhomogeneities/295f_cond_1.txt};
-      					\addlegendentry{$LF_\mathrm{cond}^\mathrm{295f'}$}
+      					%\addlegendentry{$LF_\mathrm{cond}^\mathrm{295f'}$}
       					\addplot[mark=none, color=orange!50] table [x=Prel,y=liquid_fraction]{tikz/graphs/wafer_inhomogeneities/295f_evap_1.txt};
-      					\addlegendentry{$LF_\mathrm{evap}^\mathrm{295f'}$}
+      					%\addlegendentry{$LF_\mathrm{evap}^\mathrm{295f'}$}
       					\addplot[mark=none, color=magenta] table [x=Prel,y=liquid_fraction]{tikz/graphs/wafer_inhomogeneities/295g_cond_1.txt};
-      					\addlegendentry{$LF_\mathrm{cond}^\mathrm{295g'}$}
+      					%\addlegendentry{$LF_\mathrm{cond}^\mathrm{295g'}$}
       					\addplot[mark=none, color=magenta!50] table [x=Prel,y=liquid_fraction]{tikz/graphs/wafer_inhomogeneities/295g_evap_1.txt};
-      					\addlegendentry{$LF_\mathrm{evap}^\mathrm{295g'}$}
+      					%\addlegendentry{$LF_\mathrm{evap}^\mathrm{295g'}$}
               \end{axis}
       				% transmission
       				\begin{axis}[
@@ -67,25 +67,25 @@
       					]
       					% Add plots
       					\addplot[mark=none, color=red] table [x=Prel,y=transmission]{tikz/graphs/wafer_inhomogeneities/295c_cond_2.txt};
-      					\addlegendentry{$T_\mathrm{cond}^\mathrm{295c'}$}
+      					%\addlegendentry{$T_\mathrm{cond}^\mathrm{295c'}$}
       					\addplot[mark=none, color=red!50] table [x=Prel,y=transmission]{tikz/graphs/wafer_inhomogeneities/295c_evap_2.txt};
-      					\addlegendentry{$T_\mathrm{evap}^\mathrm{295c'}$}
+      					%\addlegendentry{$T_\mathrm{evap}^\mathrm{295c'}$}
       					\addplot[mark=none, color=blue] table [x=Prel,y=transmission]{tikz/graphs/wafer_inhomogeneities/295d_cond_2.txt};
-      					\addlegendentry{$T_\mathrm{cond}^\mathrm{295d'}$}
+      					%\addlegendentry{$T_\mathrm{cond}^\mathrm{295d'}$}
                 \addplot[mark=none, color=blue!50] table [x=Prel,y=transmission]{tikz/graphs/wafer_inhomogeneities/295d_evap_2.txt};
-      					\addlegendentry{$T_\mathrm{evap}^\mathrm{295d'}$}
+      					%\addlegendentry{$T_\mathrm{evap}^\mathrm{295d'}$}
       					\addplot[mark=none, color=green] table [x=Prel,y=transmission]{tikz/graphs/wafer_inhomogeneities/295e_cond_1.txt};
-      					\addlegendentry{$T_\mathrm{cond}^\mathrm{295e'}$}
+      					%\addlegendentry{$T_\mathrm{cond}^\mathrm{295e'}$}
       					\addplot[mark=none, color=green!50] table [x=Prel,y=transmission]{tikz/graphs/wafer_inhomogeneities/295e_evap_1.txt};
-      					\addlegendentry{$T_\mathrm{evap}^\mathrm{295e'}$}
+      					%\addlegendentry{$T_\mathrm{evap}^\mathrm{295e'}$}
       					\addplot[mark=none, color=orange] table [x=Prel,y=transmission]{tikz/graphs/wafer_inhomogeneities/295f_cond_1.txt};
-      					\addlegendentry{$T_\mathrm{cond}^\mathrm{295f'}$}
+      					%\addlegendentry{$T_\mathrm{cond}^\mathrm{295f'}$}
       					\addplot[mark=none, color=orange!50] table [x=Prel,y=transmission]{tikz/graphs/wafer_inhomogeneities/295f_evap_1.txt};
-      					\addlegendentry{$T_\mathrm{evap}^\mathrm{295f'}$}
+      					%\addlegendentry{$T_\mathrm{evap}^\mathrm{295f'}$}
       					\addplot[mark=none, color=magenta] table [x=Prel,y=transmission]{tikz/graphs/wafer_inhomogeneities/295g_cond_1.txt};
-      					\addlegendentry{$T_\mathrm{cond}^\mathrm{295g'}$}
+      					%\addlegendentry{$T_\mathrm{cond}^\mathrm{295g'}$}
       					\addplot[mark=none, color=magenta!50] table [x=Prel,y=transmission]{tikz/graphs/wafer_inhomogeneities/295g_evap_1.txt};
-      					\addlegendentry{$T_\mathrm{evap}^\mathrm{295g'}$}
+      					%\addlegendentry{$T_\mathrm{evap}^\mathrm{295g'}$}
       				\end{axis}
           \end{tikzpicture}
         \end{block}
@@ -93,7 +93,7 @@
 
         \column{\dimexpr\linewidth / 11}
         \column{\dimexpr\linewidth / 11 * 5}
-          \begin{block}{Closed pore membranes wafer 296}
+          \begin{block}{Closed pore membranes of wafer 296}
             \tikzsetnextfilename{296_cp}
             \begin{tikzpicture}[scale=0.5, transform shape]
                 \def\PrelMin{.87}
@@ -119,27 +119,27 @@
                   ]
         					% Add plots
         					\addplot[mark=none, color=red] table [x=Prel,y=liquid_fraction]{tikz/graphs/wafer_inhomogeneities/296a_cond_2.txt};
-        					\addlegendentry{$LF_\mathrm{cond}^\mathrm{296a}$}
+        					%\addlegendentry{$LF_\mathrm{cond}^\mathrm{296a}$}
         					\addplot[mark=none, color=red!50] table [x=Prel,y=liquid_fraction]{tikz/graphs/wafer_inhomogeneities/296a_evap_2.txt};
-        					\addlegendentry{$LF_\mathrm{evap}^\mathrm{296a}$}
+        					%\addlegendentry{$LF_\mathrm{evap}^\mathrm{296a}$}
         					\addplot[mark=none, color=blue] table [x=Prel,y=liquid_fraction]{tikz/graphs/wafer_inhomogeneities/296b_cp_cond_1.txt};
-        					\addlegendentry{$LF_\mathrm{cond}^\mathrm{296b}$}
+        					%\addlegendentry{$LF_\mathrm{cond}^\mathrm{296b}$}
                   \addplot[mark=none, color=blue!50] table [x=Prel,y=liquid_fraction]{tikz/graphs/wafer_inhomogeneities/296b_cp_evap_1.txt};
-        					\addlegendentry{$LF_\mathrm{evap}^\mathrm{296b}$}
+        					%\addlegendentry{$LF_\mathrm{evap}^\mathrm{296b}$}
         					\addplot[mark=none, color=green] table [x=Prel,y=liquid_fraction]{tikz/graphs/wafer_inhomogeneities/296e_cond_2.txt};
-        					\addlegendentry{$LF_\mathrm{cond}^\mathrm{296e'}$}
+        					%\addlegendentry{$LF_\mathrm{cond}^\mathrm{296e'}$}
         					\addplot[mark=none, color=green!50] table [x=Prel,y=liquid_fraction]{tikz/graphs/wafer_inhomogeneities/296e_evap_2.txt};
-        					\addlegendentry{$LF_\mathrm{evap}^\mathrm{296e'}$}
+        					%\addlegendentry{$LF_\mathrm{evap}^\mathrm{296e'}$}
         					\addplot[mark=none, color=orange] table [x=Prel,y=liquid_fraction]{tikz/graphs/wafer_inhomogeneities/296f_cond_2.txt};
-        					\addlegendentry{$LF_\mathrm{cond}^\mathrm{296f'}$}
+        					%\addlegendentry{$LF_\mathrm{cond}^\mathrm{296f'}$}
         					\addplot[mark=none, color=orange!50] table [x=Prel,y=liquid_fraction]{tikz/graphs/wafer_inhomogeneities/296f_evap_2.txt};
-        					\addlegendentry{$LF_\mathrm{evap}^\mathrm{296f'}$}
+        					%\addlegendentry{$LF_\mathrm{evap}^\mathrm{296f'}$}
                 \end{axis}
         				% transmission
         				\begin{axis}[
                   /tikz/line join=bevel,
         					ymode=log,
-        					axis y line*=right,
+        					axis y line*=right, ylabel near ticks, yticklabel pos=right,
         					line width = 1pt,
         					xmin = \PrelMin, xmax = \PrelMax,
         					ymin = \TransMin, ymax = \TransMax,
@@ -151,21 +151,21 @@
         					]
         					% Add plots
         					\addplot[mark=none, color=red] table [x=Prel,y=transmission]{tikz/graphs/wafer_inhomogeneities/296a_cond_2.txt};
-        					\addlegendentry{$T_\mathrm{cond}^\mathrm{296a}$}
+        					%\addlegendentry{$T_\mathrm{cond}^\mathrm{296a}$}
         					\addplot[mark=none, color=red!50] table [x=Prel,y=transmission]{tikz/graphs/wafer_inhomogeneities/296a_evap_2.txt};
-        					\addlegendentry{$T_\mathrm{evap}^\mathrm{296a}$}
+        					%\addlegendentry{$T_\mathrm{evap}^\mathrm{296a}$}
         					\addplot[mark=none, color=blue] table [x=Prel,y=transmission]{tikz/graphs/wafer_inhomogeneities/296b_cp_cond_1.txt};
-        					\addlegendentry{$T_\mathrm{cond}^\mathrm{296b}$}
+        					%\addlegendentry{$T_\mathrm{cond}^\mathrm{296b}$}
                   \addplot[mark=none, color=blue!50] table [x=Prel,y=transmission]{tikz/graphs/wafer_inhomogeneities/296b_cp_evap_1.txt};
-        					\addlegendentry{$T_\mathrm{evap}^\mathrm{296b}$}
+        					%\addlegendentry{$T_\mathrm{evap}^\mathrm{296b}$}
         					\addplot[mark=none, color=green] table [x=Prel,y=transmission]{tikz/graphs/wafer_inhomogeneities/296e_cond_2.txt};
-        					\addlegendentry{$T_\mathrm{cond}^\mathrm{296e'}$}
+        					%\addlegendentry{$T_\mathrm{cond}^\mathrm{296e'}$}
         					\addplot[mark=none, color=green!50] table [x=Prel,y=transmission]{tikz/graphs/wafer_inhomogeneities/296e_evap_2.txt};
-        					\addlegendentry{$T_\mathrm{evap}^\mathrm{296e'}$}
+        					%\addlegendentry{$T_\mathrm{evap}^\mathrm{296e'}$}
         					\addplot[mark=none, color=orange] table [x=Prel,y=transmission]{tikz/graphs/wafer_inhomogeneities/296f_cond_2.txt};
-        					\addlegendentry{$T_\mathrm{cond}^\mathrm{296f'}$}
+        					%\addlegendentry{$T_\mathrm{cond}^\mathrm{296f'}$}
         					\addplot[mark=none, color=orange!50] table [x=Prel,y=transmission]{tikz/graphs/wafer_inhomogeneities/296f_evap_2.txt};
-        					\addlegendentry{$T_\mathrm{evap}^\mathrm{296f'}$}
+        					%\addlegendentry{$T_\mathrm{evap}^\mathrm{296f'}$}
         				\end{axis}
             \end{tikzpicture}
           \end{block}
