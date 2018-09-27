@@ -5,6 +5,7 @@
     \begin{columns}[onlytextwidth, T]
       \column{\dimexpr\linewidth / 3}
     %\tikzsetnextfilename{cp_visual_loop}
+    \tikzexternaldisable
           \begin{tikzpicture}[scale=0.7, transform shape, every node/.style = {font = \small},
                               pore/.style = {line width = 0.1cm, color = gray},
                               film/.style = {line width = 0.1cm, color = blue!50},
@@ -44,6 +45,7 @@
         \end{block}
     \end{columns}
     %\tikzsetnextfilename{cp_loop}
+    \tikzexternaldisable
     \begin{tikzpicture}[scale=0.75, transform shape, every node/.style = {font = \small},
                         pore/.style = {line width = 0.1cm, color = gray},
                         film/.style = {line width = 0.1cm, color = blue!50},

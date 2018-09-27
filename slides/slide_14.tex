@@ -5,10 +5,67 @@
   \begin{frame}{Data evaluation - volumetrics}
     \begin{columns}[onlytextwidth, T]
       \column{\dimexpr\linewidth / 3}
-        %\tikzsetnextfilename{vs_time_iso}
+        \tikzsetnextfilename{vs_time_iso}
+        \begin{tikzpicture}[scale=0.4, transform shape]
+          \def\tMin{0}
+          \def\tMax{17}
+          \def\PMin{0}
+          \def\PMax{160}
+          \def\LineWidth{.5pt}
+          %
+          \begin{axis}[
+            /tikz/line join=bevel,
+            %width=0.45*\textwidth,
+            %height=0.45*\textwidth,
+            line width = 1pt,
+            xmin = \tMin, xmax = \tMax,
+            ymin = \PMin, ymax = \PMax,
+            xlabel = {Normalized time $t$ in $\si\hour$},
+            ylabel = {Pressure inside the cell $P_\mathrm{cell}$ in $\si{\milli\bar}$},
+            grid,
+            legend style={at={(1,0)}, legend columns=1, anchor=south east},
+            every axis plot,
+            ]
+            % Add plots
+            \addplot[mark=none, color=blue] table [x=t,y=Prel]{tikz/graphs/295b_membrane_vs_nomembrane/nomembrane.txt};
+            \addlegendentry{no membrane}
+            \addplot[mark=none, color=red] table [x=t,y=Prel]{tikz/graphs/295b_membrane_vs_nomembrane/membrane.txt};
+            \addlegendentry{membrane 295b}
+          \end{axis}
+        \end{tikzpicture}
         \pause
 
-        %\tikzsetnextfilename{vs_pressure_iso}
+        \tikzsetnextfilename{vs_pressure_iso}
+        \begin{tikzpicture}[scale=0.4, transform shape]
+                \def\tMin{-10}
+                \def\tMax{160}
+                \def\PMin{-40}
+                \def\PMax{60}
+                \def\LineWidth{.5pt}
+                %
+                \begin{axis}[
+                  /tikz/line join=bevel,
+                  %width=0.45*\textwidth,
+                  %height=0.45*\textwidth,
+                  line width = 1pt,
+                  %	minor x tick num= ,
+                  %	minor y tick num= ,
+                  xmin = \tMin, xmax = \tMax,
+                  ymin = \PMin, ymax = \PMax,
+                  xlabel = {Pressure inside the cell $P_\mathrm{cell}$ in $\si{\milli\bar}$},
+                  ylabel = {Time derivative $\dot{P}_\mathrm{cell}$ in $\si{\milli\bar\per\hour}$},
+                  %	legend entries={Avec,Sans},
+                  grid,
+                  legend style={at={(0,0)}, legend columns=1, anchor=south west},
+                  every axis plot,
+                  ]
+                  % Add plots
+                  \addplot[mark=none, color=blue] table [x=Prel,y=dPcell]{tikz/graphs/295b_membrane_vs_nomembrane/nomembrane.txt};
+                  \addlegendentry{no membrane}
+                  \addplot[mark=none, color=red] table [x=Prel,y=dPcell]{tikz/graphs/295b_membrane_vs_nomembrane/membrane.txt};
+                  \addlegendentry{membrane 295b}
+                \end{axis}
+        \end{tikzpicture}
       \pause
 
       \column{\dimexpr\linewidth / 3 * 2}
@@ -16,13 +73,86 @@
           \begin{itemize}
             \begin{tiny}
             \item The flow rate depends on the opening of the \textsc{Pfeiffer} microvalve.
-            \item Empty cell: $\dot{n}=\frac{V_\mathrm{cell}}{RT_\mathrm{cell}}\cdot\dot{P}_\mathrm{cell}$
+            \pause
+
+            \item Empty cell: $\dot{n}^\mathrm{no}_\mathrm{mem}=\frac{V_\mathrm{cell}}{RT_\mathrm{cell}}\cdot\dot{P}_\mathrm{cell}$
+            \pause
+
             \item Flow rate conservation: $\dot{n}_\mathrm{mem}^\mathrm{no}(P_\mathrm{mem}^\mathrm{no}(t_\mathrm{mem}^\mathrm{no}))=\dot{n}_\mathrm{mem}(P_\mathrm{mem}(t_\mathrm{mem}))$
+            \pause
+
             \item $n_\mathrm{mem}=\frac{V}{RT}\int^{t_\mathrm{mem}}_{0} \left( \dot{P}_\mathrm{mem}^\mathrm{no}(P_\mathrm{mem}^\mathrm{no}=P_\mathrm{mem}) - \dot{P}_\mathrm{mem}(P_\mathrm{mem}) \right)\mathrm{d}t_\mathrm{mem}'$
             \end{tiny}
           \end{itemize}
         \end{block}
+        \pause
 
+        \begin{columns}[onlytextwidth, T]
+          \column{\dimexpr\linewidth / 2}
+          \tikzsetnextfilename{integration_graph}
+            \begin{tikzpicture}[scale=0.3, transform shape]
+              \def\tMin{-1}
+              \def\tMax{16}
+              \def\PMin{-40}
+              \def\PMax{60}
+              \def\LineWidth{1pt}
+              %
+              \begin{axis}[
+                /tikz/line join=bevel,
+                line width = 1pt,
+                xmin = \tMin, xmax = \tMax,
+                ymin = \PMin, ymax = \PMax,
+                xlabel = {Normalized time $t$ in $\si\hour$},
+                ylabel = {Time derivative $\dot{P}_\mathrm{cell}$ in $\si{\milli\bar\per\hour}$},
+                grid,
+                legend style={at={(1,1)}, legend columns=1, anchor=north east},
+                every axis plot,
+                ]
+                % Add plots
+                \addplot[mark=none, color=blue] table [x=t,y=interpol]{tikz/graphs/295d_integration_visualization/296b_op_cond_1.txt};
+                \addlegendentry{interpolation}
+                \addplot[mark=none, color=red] table [x=t,y=dPcell]{tikz/graphs/295d_integration_visualization/296b_op_evap_1.txt};
+                \addlegendentry{membrane}
+                \addplot[name path=interpolation1, mark=none, color=green] table [x=t,y=delta_dPcell]{tikz/graphs/295d_integration_visualization/296b_op_cond_1.txt};
+                \addlegendentry{substraction}
+                \path[name path=xAxis] (\pgfkeysvalueof{/pgfplots/xmin},0) -- (\pgfkeysvalueof{/pgfplots/xmax},0);
+                %\addplot[green!30] fill between [of=interpolation1 and xAxis];
+                \addplot[mark=none, color=blue] table [x=t,y=interpol]{tikz/graphs/295d_integration_visualization/296b_op_evap_1.txt};
+                \addplot[mark=none, color=red] table [x=t,y=dPcell]{tikz/graphs/295d_integration_visualization/296b_op_evap_1.txt};
+                \addplot[name path=interpolation2, mark=none, color=green] table [x=t,y=delta_dPcell]{tikz/graphs/295d_integration_visualization/296b_op_evap_1.txt};
+                %\addplot[green!30] fill between [of=interpolation1 and xAxis];
+              \end{axis}
+            \end{tikzpicture}
+            \pause
+
+          \column{\dimexpr\linewidth / 2}
+          \tikzsetnextfilename{prel_isotherm}
+            \begin{tikzpicture}[scale=0.3, transform shape]
+                  \def\tMin{0}
+                  \def\tMax{155}
+                  \def\PMin{0}
+                  \def\PMax{17}
+                  \def\LineWidth{1pt}
+                  %
+                  \begin{axis}[
+                    /tikz/line join=bevel,
+                    line width = 1pt,
+                    xmin = \tMin, xmax = \tMax,
+                    ymin = \PMin, ymax = \PMax,
+                    xlabel = {Pressure inside the cell $P_\mathrm{cell}$},
+                    ylabel = {Condensed amount of hexane $n$ in $\si{\micro\mol}$},
+                    grid,
+                    legend style={at={(0,1)}, legend columns=1, anchor=north west},
+                    every axis plot,
+                    ]
+                    % Add plots
+                    \addplot[mark=none, color=blue] table [x=Pcell,y=mol]{tikz/graphs/295d_integration_visualization/296b_op_cond_1.txt};
+                    \addlegendentry{condensation}
+                    \addplot[mark=none, color=blue!50] table [x=Pcell,y=mol]{tikz/graphs/295d_integration_visualization/296b_op_evap_1.txt};
+                    \addlegendentry{evaporation}
+                  \end{axis}
+            \end{tikzpicture}
+        \end{columns}
     \end{columns}
   \end{frame}
 
