@@ -1,5 +1,67 @@
 \documentclass[../defence.tex]{subfiles}
 
 \begin{document}
+  \begin{frame}{Unexpected closed pores}
+    \begin{columns}[onlytextwidth, T]
+      \column{\dimexpr\linewidth / 21 * 10}
+        \tikzsetnextfilename{295c}
+        \begin{tikzpicture}[spy using outlines={ellipse, magnification=4, connect spies}]
+            \def\PrelMin{.86}
+    				\def\PrelMax{1}
+    				\def\TransMin{1e-6}
+    				\def\TransMax{1}
+    				\def\LfMin{0}
+    				\def\LfMax{2}
+            %
+            \begin{axis}[
+              /tikz/line join=bevel,
+              grid,
+    					axis y line*=left,
+              legend style={at={(0,0.5)}, legend columns=1, anchor=north west},
+              every axis plot,
+    					axis y line*=left,
+    					line width = 1pt,
+    					xmin = \PrelMin, xmax = \PrelMax,
+    					ymin = \LfMin, ymax = \LfMax,
+    					xlabel = {Relative pressure $P_\mathrm{rel}$},
+    					ylabel = {Liquid fraction $LF$},
+    					ytick = {0,0.25,0.50,0.75,1},
+              ]
+    					% Add plots
+    					\addplot[mark=none, color=blue] table [x=Prel,y=liquid_fraction]{tikz/graphs/295c/295c_cond_2.txt};
+    					\addlegendentry{Condensation}
+    					\addplot[mark=none, color=blue!50] table [x=Prel,y=liquid_fraction]{tikz/graphs/295c/295c_evap_2.txt};
+    					%\addlegendentry{$LF_\mathrm{evap}$}
+            \end{axis}
+    				% transmission
+    				\begin{axis}[
+              /tikz/line join=bevel,
+    					ymode=log,
+    					axis y line*=right, ylabel near ticks, yticklabel pos=right,
+    					line width = 1pt,
+    					xmin = \PrelMin, xmax = \PrelMax,
+    					ymin = \TransMin, ymax = \TransMax,
+    					ylabel = {Transmission $T$},
+    					xtick = {1e-1,1e-2,1e-3},
+    					ytick = {1,1e-1,1e-2,1e-3},
+    					grid,
+              legend style={at={(0,0.5)}, legend columns=1, anchor=south west},
+    					]
+    					% Add plots
+    					\addplot[mark=none, color=red] table [x=Prel,y=transmission]{tikz/graphs/295c/295c_cond_2.txt};
+    					%\addlegendentry{$T_\mathrm{cond}$}
+    					\addplot[mark=none, color=red!50] table [x=Prel,y=transmission]{tikz/graphs/295c/295c_evap_2.txt};
+    					\addlegendentry{Evaporation}
+    					\coordinate (spypoint1) at (axis cs:0.94,0.6);
+      				\coordinate (magnifyglass1) at (axis cs:0.9,.1);
+    				\end{axis}
+            \spy[size=5cm, height=1.5cm] on (spypoint1) in node[fill=white] at (magnifyglass1);
+        \end{tikzpicture}
+      \pause
 
+      \column{\dimexpr\linewidth / 21 }
+      \column{\dimexpr\linewidth / 21 * 10}
+
+    \end{columns}
+  \end{frame}
 \end{document}

@@ -3,9 +3,9 @@
 \begin{document}
   \begin{frame}{Volumetric measurement reproducibillity}
     \begin{columns}[onlytextwidth, T]
-      \column{\dimexpr\linewidth / 3 * 2}
+      \column{\dimexpr\linewidth / 12 * 7}
         \tikzsetnextfilename{292c}
-        \begin{tikzpicture}[scale=0.8, transform shape]
+        \begin{tikzpicture}[scale=0.65, transform shape]
             \def\PrelMin{.86}
     				\def\PrelMax{1}
     				\def\TransMin{1e-6}
@@ -15,13 +15,9 @@
             %
             \begin{axis}[
               /tikz/line join=bevel,
-              width=0.8*\textwidth,
-              height=0.5*\textwidth,
               grid,
-    					axis y line*=left,
               legend style={at={(1,0)}, legend columns=2, anchor=south east},
               every axis plot,
-    					axis y line*=left,
     					line width = 1pt,
     					xmin = \PrelMin, xmax = \PrelMax,
     					ymin = \LfMin, ymax = \LfMax,
@@ -52,15 +48,15 @@
     					%\addlegendentry{$LF_\mathrm{evap}^\mathrm{292c,5}$}
             \end{axis}
         \end{tikzpicture}
-      \column{\dimexpr\linewidth / 3}
+      \column{\dimexpr\linewidth / 12 * 5}
         \begin{itemize}
-          \begin{small}
+          %\begin{tiny}
             \item Open pore membrane
             \pause
             \item Slight variations of the height of the condensation branch \pause $\rightarrowtail$ combination of measurement noise and liquid film thickness
             \pause
             \item Generally sufficiently superimposed isotherms
-          \end{small}
+          %\end{tiny}
         \end{itemize}
     \end{columns}
   \end{frame}
