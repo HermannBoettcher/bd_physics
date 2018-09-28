@@ -1,5 +1,145 @@
 \documentclass[../defence.tex]{subfiles}
 
 \begin{document}
+  \begin{frame}{Inverse funnellization and thinner membranes}
+    \begin{columns}[onlytextwidth, T]
+      \column{\dimexpr\linewidth / 21 * 10}
+        \only<1->{
+          \tikzsetnextfilename{op_cp_comp}
+          \scalebox{0.55}{\begin{tikzpicture}
+                \def\PrelMin{.86}
+        				\def\PrelMax{1}
+        				\def\TransMin{1e-8}
+        				\def\TransMax{1}
+        				\def\LfMin{0}
+        				\def\LfMax{2}
+                %
+                \begin{axis}[
+                  /tikz/line join=bevel,
+                  grid,
+        					axis y line*=left,
+                  legend style={at={(0,.5)}, legend columns=2, anchor=north west},
+                  every axis plot,
+        					axis y line*=left,
+        					line width = 1pt,
+        					xmin = \PrelMin, xmax = \PrelMax,
+        					ymin = \LfMin, ymax = \LfMax,
+        					xlabel = {Relative pressure $P_\mathrm{rel}$},
+        					ylabel = {Liquid fraction $LF$},
+        					ytick = {0,0.25,0.50,0.75,1},
+                  title=$\SI{60}{\micro\meter}$ membranes,
+                  ]
+        					% Add plots
+                  \addplot[mark=none, color=red] table [x=Prel,y=liquid_fraction]{tikz/graphs/cp_op_comp/296b_cp_cond_1.txt};
+                  %\addlegendentry{$LF_\mathrm{cond}^\mathrm{296b}$}
+                  \addplot[mark=none, color=red!50] table [x=Prel,y=liquid_fraction]{tikz/graphs/cp_op_comp/296b_cp_evap_1.txt};
+                  %\addlegendentry{$LF_\mathrm{evap}^\mathrm{296b}$}
+                  \addplot[mark=none, color=blue] table [x=Prel,y=liquid_fraction]{tikz/graphs/cp_op_comp/296b_op_cond_1.txt};
+                  %\addlegendentry{$LF_\mathrm{cond}^\mathrm{296b'}$}
+                  \addplot[mark=none, color=blue!50] table [x=Prel,y=liquid_fraction]{tikz/graphs/cp_op_comp/296b_op_evap_1.txt};
+                  %\addlegendentry{$LF_\mathrm{evap}^\mathrm{296b'}$}
+                \end{axis}
+                %
+                \begin{axis}[
+                  /tikz/line join=bevel,
+                  ymode=log,
+                  axis y line*=right, ylabel near ticks, yticklabel pos=right,
+                  line width = 1pt,
+                  xmin = \PrelMin, xmax = \PrelMax,
+                  ymin = \TransMin, ymax = \TransMax,
+                  ylabel = {Transmission $T$},
+                  ytick = {1e-1,1e-2,1e-3,1e-4},
+                  ymajorgrids=true,
+                  legend style={at={(0,0.5)}, legend columns=1, anchor=west},
+                  ]
+        					% Add plots
+                  \addplot[mark=none, color=red] table [x=Prel,y=transmission]{tikz/graphs/cp_op_comp/296b_cp_cond_1.txt};
+                  \addlegendentry{Closed pores}
+                  \addplot[mark=none, color=blue] table [x=Prel,y=transmission]{tikz/graphs/cp_op_comp/296b_op_cond_1.txt};
+                  \addlegendentry{Open pores}
+                  \addplot[mark=none, color=red!50] table [x=Prel,y=transmission]{tikz/graphs/cp_op_comp/296b_cp_evap_1.txt};
+                  %\addlegendentry{$T_\mathrm{evap}^\mathrm{296b}$}
+                  \addplot[mark=none, color=blue!50] table [x=Prel,y=transmission]{tikz/graphs/cp_op_comp/296b_op_evap_1.txt};
+                  %\addlegendentry{$T_\mathrm{evap}^\mathrm{296b'}$}
+                \end{axis}
+          \end{tikzpicture}}}
+        \only<2->{
+          \begin{tiny}
+            \begin{itemize}
+                \item Sharpening of the isotherm branches upon pore opening
+                \item Shape does not change - same as for inverse funnellization
+            \end{itemize}
+          \end{tiny}}
 
+      \column{\dimexpr\linewidth / 21}
+      \column{\dimexpr\linewidth / 21 * 10}
+      \only<3->{
+        \vfill
+        \tikzsetnextfilename{295_op_cp_comp}
+        \scalebox{0.55}{\begin{tikzpicture}
+              \def\PrelMin{.86}
+              \def\PrelMax{1}
+              \def\TransMin{1e-8}
+              \def\TransMax{1}
+              \def\LfMin{0}
+              \def\LfMax{2}
+              %
+              \begin{axis}[
+                /tikz/line join=bevel,
+                grid,
+                axis y line*=left,
+                legend style={at={(0,.5)}, legend columns=1, anchor=north west},
+                every axis plot,
+                axis y line*=left,
+                line width = 1pt,
+                xmin = \PrelMin, xmax = \PrelMax,
+                ymin = \LfMin, ymax = \LfMax,
+                xlabel = {Transmission $T$},
+                ylabel = {Liquid fraction $LF$},
+                ytick = {0,0.25,0.50,0.75,1},
+                title=$\SI{30}{\micro\meter}$ membranes,
+                ]
+                % Add plots
+                \addplot[mark=none, color=red] table [x=Prel,y=liquid_fraction]{tikz/graphs/cp_op_comp/295b_cond_1.txt};
+                %\addlegendentry{$LF_\mathrm{cond}^\mathrm{295b}$}
+                \addplot[mark=none, color=red!50] table [x=Prel,y=liquid_fraction]{tikz/graphs/cp_op_comp/295b_evap_1.txt};
+                %\addlegendentry{$LF_\mathrm{evap}^\mathrm{295b}$}
+                \addplot[mark=none, color=blue] table [x=Prel,y=liquid_fraction]{tikz/graphs/cp_op_comp/295b_op_cond_1.txt};
+                %\addlegendentry{$LF_\mathrm{cond}^\mathrm{295b'}$}
+                \addplot[mark=none, color=blue!50] table [x=Prel,y=liquid_fraction]{tikz/graphs/cp_op_comp/295b_op_evap_1.txt};
+                %\addlegendentry{$LF_\mathrm{evap}^\mathrm{295b'}$}
+              \end{axis}
+              %
+              \begin{axis}[
+                /tikz/line join=bevel,
+                ymode=log,
+                axis y line*=right, ylabel near ticks, yticklabel pos=right,
+                line width = 1pt,
+                xmin = \PrelMin, xmax = \PrelMax,
+                ymin = \TransMin, ymax = \TransMax,
+                ylabel = {Transmission $T$},
+                ytick = {1e-1,1e-2,1e-3,1e-4},
+                ymajorgrids=true,
+                legend style={at={(0,0.5)}, legend columns=1, anchor=west},
+                ]
+                % Add plots
+                \addplot[mark=none, color=red] table [x=Prel,y=transmission]{tikz/graphs/cp_op_comp/295b_cond_1.txt};
+                \addlegendentry{Closed pores}
+                \addplot[mark=none, color=blue] table [x=Prel,y=transmission]{tikz/graphs/cp_op_comp/295b_op_cond_1.txt};
+                \addlegendentry{Open pores}
+                \addplot[mark=none, color=red!50] table [x=Prel,y=transmission]{tikz/graphs/cp_op_comp/295b_evap_1.txt};
+                %\addlegendentry{$T_\mathrm{evap}^\mathrm{295b}$}
+                \addplot[mark=none, color=blue!50] table [x=Prel,y=transmission]{tikz/graphs/cp_op_comp/295b_op_evap_1.txt};
+                %\addlegendentry{$T_\mathrm{evap}^\mathrm{295b'}$}
+              \end{axis}
+        \end{tikzpicture}}}
+        \only<4>{
+        \begin{tiny}
+          \begin{itemize}
+              \item Closed pores: Thinner membrane does not reduce funnellization as expected
+              \item Open pores: Thinner membranes do indeed\\ reduce funnellization
+          \end{itemize}
+        \end{tiny}}
+    \end{columns}
+  \end{frame}
 \end{document}

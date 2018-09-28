@@ -88,25 +88,25 @@
           %\tikzsetnextfilename{wafer_296_transmission}
           \tikzexternaldisable
           \begin{tikzpicture}[scale=0.45, transform shape]
-              \begin{scope}[xshift=-2.5cm,yshift=-3cm]
+            \begin{scope}[xshift=-2.5cm,yshift=-3cm]
               \begin{axis}[
-                  hide axis,
-                  colormap/hot,
-                  xmin=-4.5, xmax=4.5,
-                  ymin=-4.5, ymax=4.5,
-                  axis equal,
-                  width=9cm,
-                  height=9cm,
-                  colorbar,
-                  point meta min=39,
-                  point meta max=47,
-                  colorbar style={
-                    width=0.5cm,
+                    hide axis,
+                    colormap/hot,
+                    xmin=-4.5, xmax=4.5,
+                    ymin=-4.5, ymax=4.5,
+                    axis equal,
+                    width=9cm,
                     height=9cm,
-                    xtick={39,41,...,47}}
-              ]
-            \end{axis}
-        \end{scope}
+                    colorbar,
+                    point meta min=39,
+                    point meta max=47,
+                    colorbar style={
+                      width=0.5cm,
+                      height=9cm,
+                      xtick={39,41,...,47}}
+                ]
+              \end{axis}
+            \end{scope}
                   \clip[draw] (0,-0) circle (4.5);
                   \fill[gray] (0,-0) circle (4.5);
                   \fill[/utils/exec={\pgfplotscolormapdefinemappedcolor{500}}, color of colormap=0] (-2,4) -- (0,4) -- (0,2) -- (-2,2) -- cycle;

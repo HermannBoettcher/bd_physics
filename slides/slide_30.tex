@@ -1,0 +1,112 @@
+\documentclass[../defence.tex]{subfiles}
+
+\begin{document}
+  \begin{frame}{Transmission II}
+    \begin{columns}[onlytextwidth, T]
+      \column{\dimexpr\linewidth / 21 * 10}
+        \scalebox{0.55}{
+          \tikzsetnextfilename{296_transmission}
+            \begin{tikzpicture}
+                \def\PrelMin{.86}
+        				\def\PrelMax{1}
+        				\def\TransMin{1e-4}
+        				\def\TransMax{1}
+        				\def\LfMin{0}
+        				\def\LfMax{2}
+                %
+        				% transmission
+        				\begin{axis}[
+                  /tikz/line join=bevel,
+        					ymode=log,
+        					line width = 1pt,
+        					xmin = \PrelMin, xmax = \PrelMax,
+        					ymin = \TransMin, ymax = \TransMax,
+        					ylabel = {Transmission $T$},
+        					xlabel = {Relative pressure $P_\mathrm{rel}$},
+        					%ytick = {10,1,1e-1,1e-2,1e-3},
+        					grid,
+                  legend style={at={(0,0)}, legend columns=1, anchor=south west},
+        					title={$\SI{60}{\micro\meter}$ closed pores}
+        					]
+        					% Add plots
+        					\addplot[mark=none, color=red] table [x=Prel,y=transmission]{tikz/graphs/292_295_296_transmission/296b_op_cond_1.txt};
+        					\addlegendentry{Condensation}
+        					\addplot[mark=none, color=blue] table [x=Prel,y=transmission]{tikz/graphs/292_295_296_transmission/296b_op_evap_1.txt};
+        					\addlegendentry{Evaporation}
+        				\end{axis}
+            \end{tikzpicture}}
+        \pause
+
+        \scalebox{0.55}{
+        \tikzsetnextfilename{295_transmission}
+          \begin{tikzpicture}
+              \def\PrelMin{.86}
+      				\def\PrelMax{1}
+      				\def\TransMin{1e-4}
+      				\def\TransMax{1}
+      				\def\LfMin{0}
+      				\def\LfMax{2}
+              %
+      				% transmission
+      				\begin{axis}[
+                /tikz/line join=bevel,
+      					ymode=log
+      					%axis y line*=right,
+      					line width = 1pt,
+      					xmin = \PrelMin, xmax = \PrelMax,
+      					ymin = \TransMin, ymax = \TransMax,
+      					ylabel = {Transmission $T$},
+      					xlabel = {Relative pressure $P_\mathrm{rel}$},
+      					%ytick = {10,1,1e-1,1e-2,1e-3},
+      					grid,
+                legend style={at={(0,0)}, legend columns=1, anchor=west},
+      					title={$\SI{30}{\micro\meter}$}
+      					]
+      					% Add plots
+      					\addplot[mark=none, color=red] table [x=Prel,y=transmission]{tikz/graphs/292_295_296_transmission/295d_cond_2.txt};
+      					\addlegendentry{Condensation}
+      					\addplot[mark=none, color=blue] table [x=Prel,y=transmission]{tikz/graphs/292_295_296_transmission/295d_evap_2.txt};
+      					\addlegendentry{Evaporation}
+      				\end{axis}
+          \end{tikzpicture}}
+        \pause
+
+        \scalebox{0.55}{
+        \tikzsetnextfilename{295f200ALD_transmission}
+          \begin{tikzpicture}
+              \def\PrelMin{.5}
+      				\def\PrelMax{1}
+      				\def\TransMin{1e-4}
+      				\def\TransMax{1}
+      				\def\LfMin{0}
+      				\def\LfMax{2}
+              %
+      				% transmission
+      				\begin{axis}[
+                /tikz/line join=bevel,
+                width=0.45*\textwidth,
+                height=0.45*\textwidth,
+      					ymode=log,
+      					line width = 1pt,
+      					xmin = \PrelMin, xmax = \PrelMax,
+      					ymin = \TransMin, ymax = \TransMax,
+      					ylabel = {Transmission $T$},
+      					xlabel = {Relative pressure $P_\mathrm{rel}$},
+      					%ytick = {10,1,1e-1,1e-2},
+      					grid,
+                legend style={at={(0,0)}, legend columns=1, anchor=south west},
+      					title={$\SI{30}{\micro\meter}$ open pores 200 ALD},
+      					]
+      					% Add plots
+      					\addplot[mark=none, color=red] table [x=Prel,y=transmission]{tikz/graphs/292_295_296_transmission/295f200ALD_cond_1.txt};
+      					\addlegendentry{Condensation}
+      					\addplot[mark=none, color=blue] table [x=Prel,y=transmission]{tikz/graphs/292_295_296_transmission/295f200ALD_evap_1.txt};
+      					\addlegendentry{Evaporation}
+      				\end{axis}
+          \end{tikzpicture}}
+
+      \column{\dimexpr\linewidth / 21}
+      \column{\dimexpr\linewidth / 21 * 10}
+    \end{columns}
+  \end{frame}
+\end{document}

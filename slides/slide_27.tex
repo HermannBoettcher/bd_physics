@@ -1,0 +1,180 @@
+\documentclass[../defence.tex]{subfiles}
+
+\begin{document}
+  \begin{frame}{ALD for smaller pore diameters I}
+    \begin{columns}[onlytextwidth, T]
+      \column{\dimexpr\linewidth / 21 * 10}
+        \scalebox{0.45}{
+          \tikzsetnextfilename{295_f_200ALD_p}
+          \begin{tikzpicture}
+              \def\PrelMin{.55}
+      				\def\PrelMax{1}
+      				\def\TransMin{1e-4}
+      				\def\TransMax{1}
+      				\def\LfMin{0}
+      				\def\LfMax{2}
+              %
+              \begin{axis}[
+                /tikz/line join=bevel,
+                grid,
+                legend style={at={(0,.5)}, legend columns=1, anchor=north west},
+                every axis plot,
+      					axis y line*=left,
+      					line width = 1pt,
+      					xmin = \PrelMin, xmax = \PrelMax,
+      					ymin = \LfMin, ymax = \LfMax,
+      					xlabel = {Relative pressure $P_\mathrm{rel}$},
+      					ylabel = {Liquid fraction $LF$},
+      					ytick = {0,0.25,0.50,0.75,1},
+                ]
+      					% Add plots
+      					\addplot[mark=none, color=red] table [x=Prel,y=liquid_fraction]{tikz/graphs/295_e_f_ALD/295f200ALD_cond_1.txt};
+      					%\addlegendentry{$LF_\mathrm{cond}^\mathrm{295f''}$}
+      					\addplot[mark=none, color=green!50] table [x=Prel,y=liquid_fraction]{tikz/graphs/295_e_f_ALD/295f200ALD_evap_1.txt};
+      					%\addlegendentry{$LF_\mathrm{evap}^\mathrm{295f''}$}
+              \end{axis}
+              \begin{axis}[
+                /tikz/line join=bevel,
+                legend style={at={(0,.5)}, legend columns=1, anchor=west},
+                every axis plot,
+      					axis y line*=right, ylabel near ticks, yticklabel pos=right,
+      					line width = 1pt,
+                ymode=log,
+      					xmin = \PrelMin, xmax = \PrelMax,
+      					ymin = \TransMin, ymax = \TransMax,
+      					ylabel = {Transmission $T$},
+                ymajorgrids=true,
+      					ytick = {1,1e-1,1e-2},
+                ]
+      					% Add plots
+      					\addplot[mark=none, color=red] table [x=Prel,y=transmission]{tikz/graphs/295_e_f_ALD/295f200ALD_cond_1.txt};
+      					\addlegendentry{Condensation}
+      					\addplot[mark=none, color=green!50] table [x=Prel,y=transmission]{tikz/graphs/295_e_f_ALD/295f200ALD_evap_1.txt};
+      					\addlegendentry{Evaporation}
+              \end{axis}
+          \end{tikzpicture}}
+        \pause
+
+        \scalebox{0.45}{
+          \tikzsetnextfilename{295_f_200ALD_kelvin}
+          \begin{tikzpicture}
+              \def\rMin{0}
+      				\def\rMax{40}
+      				\def\TransMin{1e-4}
+      				\def\TransMax{1}
+      				\def\LfMin{0}
+      				\def\LfMax{2}
+              %
+              \begin{axis}[
+                /tikz/line join=bevel,
+                grid,
+                legend style={at={(0,.5)}, legend columns=1, anchor=north west},
+                every axis plot,
+      					axis y line*=left,
+      					line width = 1pt,
+      					xmin = \rMin, xmax = \rMax,
+      					ymin = \LfMin, ymax = \LfMax,
+      					xlabel = {Relative pressure $P_\mathrm{rel}$},
+      					ylabel = {Liquid fraction $LF$},
+      					ytick = {0,0.25,0.50,0.75,1},
+                ]
+      					% Add plots
+      					\addplot[mark=none, color=red] table [x=r_kelvin,y=liquid_fraction]{tikz/graphs/295_e_f_ALD/295f200ALD_cp_cond_1.txt};
+      					%\addlegendentry{$T_\mathrm{cond,cp}^\mathrm{295f''}$}
+      					\addplot[mark=none, color=blue] table [x=r_kelvin,y=liquid_fraction]{tikz/graphs/295_e_f_ALD/295f200ALD_cond_1.txt};
+      					%\addlegendentry{$LF_\mathrm{cond,op}^\mathrm{295f''}$}
+      					\addplot[mark=none, color=green!50] table [x=r_kelvin,y=liquid_fraction]{tikz/graphs/295_e_f_ALD/295f200ALD_evap_1.txt};
+      					%\addlegendentry{$LF_\mathrm{evap,cp/op}^\mathrm{295f''}$}
+              \end{axis}
+              \begin{axis}[
+                /tikz/line join=bevel,
+                legend style={at={(0,.6)}, legend columns=1, anchor=west},
+                every axis plot,
+      					axis y line*=right, ylabel near ticks, yticklabel pos=right,
+      					line width = 1pt,
+                ymode=log,
+      					xmin = \rMin, xmax = \rMax,
+      					ymin = \TransMin, ymax = \TransMax,
+      					ylabel = {Transmission $T$},
+                ymajorgrids=true,
+      					ytick = {1,1e-1,1e-2},
+                ]
+      					% Add plots
+      					\addplot[mark=none, color=red] table [x=r_kelvin,y=transmission]{tikz/graphs/295_e_f_ALD/295f200ALD_cp_cond_1.txt};
+      					\addlegendentry{Cond (cp)}
+      					\addplot[mark=none, color=blue] table [x=r_kelvin,y=transmission]{tikz/graphs/295_e_f_ALD/295f200ALD_cond_1.txt};
+      					\addlegendentry{Cond (op)}
+      					\addplot[mark=none, color=green!50] table [x=r_kelvin,y=transmission]{tikz/graphs/295_e_f_ALD/295f200ALD_evap_1.txt};
+      					\addlegendentry{Evaporation}
+              \end{axis}
+          \end{tikzpicture}}
+        \pause
+
+      \column{\dimexpr\linewidth / 21}
+      \column{\dimexpr\linewidth / 21 * 10}
+       \begin{tiny}
+         \begin{itemize}
+           \item Closed and open pore \textsc{Kelvin} conversion yields branches covering the same diameter ranges
+           \pause
+
+           \item Expected to work on the membrane with 100 + 100 cycles of ALD too
+         \end{itemize}
+       \end{tiny}
+       \pause
+
+       \scalebox{0.55}{
+         \tikzsetnextfilename{295_f_200ALD_kelvin_2}
+         \begin{tikzpicture}
+             \def\rMin{0}
+     				\def\rMax{40}
+     				\def\TransMin{1e-4}
+     				\def\TransMax{1}
+     				\def\LfMin{0}
+     				\def\LfMax{2}
+             %
+             \begin{axis}[
+               /tikz/line join=bevel,
+               grid,
+               legend style={at={(0,.5)}, legend columns=1, anchor=north west},
+               every axis plot,
+     					axis y line*=left,
+     					line width = 1pt,
+     					xmin = \rMin, xmax = \rMax,
+     					ymin = \LfMin, ymax = \LfMax,
+     					xlabel = {Relative pressure $P_\mathrm{rel}$},
+     					ylabel = {Liquid fraction $LF$},
+     					ytick = {0,0.25,0.50,0.75,1},
+               ]
+     					% Add plots
+     					\addplot[mark=none, color=red] table [x=r_kelvin,y=liquid_fraction]{tikz/graphs/295_e_f_ALD/295f200ALD_cp_cond_1.txt};
+     					%\addlegendentry{$T_\mathrm{cond,cp}^\mathrm{295f''}$}
+     					\addplot[mark=none, color=blue] table [x=r_kelvin,y=liquid_fraction]{tikz/graphs/295_e_f_ALD/295f200ALD_cond_1.txt};
+     					%\addlegendentry{$LF_\mathrm{cond,op}^\mathrm{295f''}$}
+     					\addplot[mark=none, color=green!50] table [x=r_kelvin,y=liquid_fraction]{tikz/graphs/295_e_f_ALD/295f200ALD_evap_1.txt};
+     					%\addlegendentry{$LF_\mathrm{evap,cp/op}^\mathrm{295f''}$}
+             \end{axis}
+             \begin{axis}[
+               /tikz/line join=bevel,
+               legend style={at={(0,.5)}, legend columns=1, anchor=west},
+               every axis plot,
+     					axis y line*=right, ylabel near ticks, yticklabel pos=right,
+     					line width = 1pt,
+               ymode=log,
+     					xmin = \rMin, xmax = \rMax,
+     					ymin = \TransMin, ymax = \TransMax,
+     					ylabel = {Transmission $T$},
+               ymajorgrids=true,
+     					ytick = {1,1e-1,1e-2},
+               ]
+     					% Add plots
+     					\addplot[mark=none, color=red] table [x=r_kelvin,y=transmission]{tikz/graphs/295_e_f_ALD/295f200ALD_cp_cond_1.txt};
+     					\addlegendentry{Cond (cp)}
+     					\addplot[mark=none, color=blue] table [x=r_kelvin,y=transmission]{tikz/graphs/295_e_f_ALD/295f200ALD_cond_1.txt};
+     					\addlegendentry{Cond (op)}
+     					\addplot[mark=none, color=green!50] table [x=r_kelvin,y=transmission]{tikz/graphs/295_e_f_ALD/295f200ALD_evap_1.txt};
+     					\addlegendentry{Evaporation}
+             \end{axis}
+         \end{tikzpicture}}
+    \end{columns}
+  \end{frame}
+\end{document}

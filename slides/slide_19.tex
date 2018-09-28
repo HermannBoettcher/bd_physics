@@ -30,7 +30,7 @@
     					% Add plots
               \addplot +[no markers, raw gnuplot, line width = 1pt,red]
               gnuplot{plot "tikz/graphs/294_bad_open_pores/PNO_OuvertSol.qgra.text" index 0;};
-              \addlegendentry{Closed pores}
+              %\addlegendentry{Closed pores}
               \addplot +[no markers, raw gnuplot, line width = 1pt,red!50]
               gnuplot{plot "tikz/graphs/294_bad_open_pores/PNO_OuvertSol.qgra.text" index 1;};
               %\addlegendentry{$LF_\mathrm{evap}^\mathrm{294cp}$}
@@ -52,17 +52,18 @@
               ylabel = {Transmission $T$},
               ytick = {1e-1,1e-2,1e-3,1e-4},
               ymajorgrids=true,
-              legend style={at={(0,0.5)}, legend columns=1, anchor=south west},
+              legend style={at={(0,0.5)}, legend columns=1, anchor=west},
               ]
     					% Add plots
               \addplot +[no markers, raw gnuplot, line width = 1pt,red]
               gnuplot{plot "tikz/graphs/294_bad_open_pores/PNO_OuvertSol.qgra.text" using ($1):($2*0.45) index 2;};
-              \addplot +[no markers, raw gnuplot, line width =1pt,red!50]
-              gnuplot{plot "tikz/graphs/294_bad_open_pores/PNO_OuvertSol.qgra.text" using ($1):($2*0.45) index 3;};
-              %\addlegendentry{$T_\mathrm{evap}^\mathrm{294cp}$}
+              \addlegendentry{Closed pores}
               \addplot +[no markers, raw gnuplot, line width = 1pt,blue]
               gnuplot{plot "tikz/graphs/294_bad_open_pores/PO.qgra.text" using ($1):($2*0.45) index 2;};
               \addlegendentry{Bad open pores}
+              \addplot +[no markers, raw gnuplot, line width =1pt,red!50]
+              gnuplot{plot "tikz/graphs/294_bad_open_pores/PNO_OuvertSol.qgra.text" using ($1):($2*0.45) index 3;};
+              %\addlegendentry{$T_\mathrm{evap}^\mathrm{294cp}$}
               \addplot +[no markers, raw gnuplot, line width =1pt,blue!50]
               gnuplot{plot "tikz/graphs/294_bad_open_pores/PO.qgra.text" using ($1):($2*0.45) index 3;};
               %\addlegendentry{$T_\mathrm{evap}^\mathrm{294op}$}
