@@ -6,7 +6,7 @@
       \column{\dimexpr\linewidth / 21 * 10}
         \scalebox{0.55}{
           \tikzsetnextfilename{296_transmission}
-            \begin{tikzpicture}
+          \begin{tikzpicture}
                 \def\PrelMin{.86}
         				\def\PrelMax{1}
         				\def\TransMin{1e-4}
@@ -34,11 +34,11 @@
         					\addplot[mark=none, color=blue] table [x=Prel,y=transmission]{tikz/graphs/292_295_296_transmission/296b_op_evap_1.txt};
         					\addlegendentry{Evaporation}
         				\end{axis}
-            \end{tikzpicture}}
+          \end{tikzpicture}}
         \pause
 
         \scalebox{0.55}{
-        \tikzsetnextfilename{295_transmission}
+          \tikzsetnextfilename{295_transmission}
           \begin{tikzpicture}
               \def\PrelMin{.86}
       				\def\PrelMax{1}
@@ -50,8 +50,7 @@
       				% transmission
       				\begin{axis}[
                 /tikz/line join=bevel,
-      					ymode=log
-      					%axis y line*=right,
+      					ymode=log,
       					line width = 1pt,
       					xmin = \PrelMin, xmax = \PrelMax,
       					ymin = \TransMin, ymax = \TransMax,
@@ -71,42 +70,39 @@
           \end{tikzpicture}}
         \pause
 
-        \scalebox{0.55}{
-        \tikzsetnextfilename{295f200ALD_transmission}
-          \begin{tikzpicture}
-              \def\PrelMin{.5}
-      				\def\PrelMax{1}
-      				\def\TransMin{1e-4}
-      				\def\TransMax{1}
-      				\def\LfMin{0}
-      				\def\LfMax{2}
-              %
-      				% transmission
-      				\begin{axis}[
-                /tikz/line join=bevel,
-                width=0.45*\textwidth,
-                height=0.45*\textwidth,
-      					ymode=log,
-      					line width = 1pt,
-      					xmin = \PrelMin, xmax = \PrelMax,
-      					ymin = \TransMin, ymax = \TransMax,
-      					ylabel = {Transmission $T$},
-      					xlabel = {Relative pressure $P_\mathrm{rel}$},
-      					%ytick = {10,1,1e-1,1e-2},
-      					grid,
-                legend style={at={(0,0)}, legend columns=1, anchor=south west},
-      					title={$\SI{30}{\micro\meter}$ open pores 200 ALD},
-      					]
-      					% Add plots
-      					\addplot[mark=none, color=red] table [x=Prel,y=transmission]{tikz/graphs/292_295_296_transmission/295f200ALD_cond_1.txt};
-      					\addlegendentry{Condensation}
-      					\addplot[mark=none, color=blue] table [x=Prel,y=transmission]{tikz/graphs/292_295_296_transmission/295f200ALD_evap_1.txt};
-      					\addlegendentry{Evaporation}
-      				\end{axis}
-          \end{tikzpicture}}
-
       \column{\dimexpr\linewidth / 21}
       \column{\dimexpr\linewidth / 21 * 10}
+        \scalebox{0.55}{
+          \tikzsetnextfilename{295f200ALD_transmission}
+          \begin{tikzpicture}
+              \def\PrelMin{.5}
+              \def\PrelMax{1}
+              \def\TransMin{1e-4}
+              \def\TransMax{1}
+              \def\LfMin{0}
+              \def\LfMax{2}
+              %
+              % transmission
+              \begin{axis}[
+                /tikz/line join=bevel,
+                ymode=log,
+                line width = 1pt,
+                xmin = \PrelMin, xmax = \PrelMax,
+                ymin = \TransMin, ymax = \TransMax,
+                ylabel = {Transmission $T$},
+                xlabel = {Relative pressure $P_\mathrm{rel}$},
+                %ytick = {10,1,1e-1,1e-2},
+                grid,
+                legend style={at={(0,0)}, legend columns=1, anchor=south west},
+                title={$\SI{30}{\micro\meter}$ open pores 200 ALD},
+                ]
+                % Add plots
+                \addplot[mark=none, color=red] table [x=Prel,y=transmission]{tikz/graphs/292_295_296_transmission/295f200ALD_cond_1.txt};
+                \addlegendentry{Condensation}
+                \addplot[mark=none, color=blue] table [x=Prel,y=transmission]{tikz/graphs/292_295_296_transmission/295f200ALD_evap_1.txt};
+                \addlegendentry{Evaporation}
+              \end{axis}
+          \end{tikzpicture}}
     \end{columns}
   \end{frame}
 \end{document}

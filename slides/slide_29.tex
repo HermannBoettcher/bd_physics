@@ -5,7 +5,7 @@
     \begin{columns}[onlytextwidth, T]
       \column{\dimexpr\linewidth / 21 * 10}
         \scalebox{0.55}{
-        \tikzsetnextfilename{292_transmission}
+          \tikzsetnextfilename{292_transmission}
           \begin{tikzpicture}
               \def\PrelMin{.86}
       				\def\PrelMax{1}
@@ -26,7 +26,7 @@
       					xlabel = {Relative pressure $P_\mathrm{rel}$},
       					%ytick = {1,1e-1,1e-2,1e-3,1e-4},
       					grid,
-                legend style={at={(0,0)}, legend columns=1, anchor=south west},
+                legend style={at={(0,0)}, legend columns=1, anchor=west},
       					]
       					% Add plots
       					\addplot[mark=none, color=red] table [x=Prel,y=transmission, col sep=comma]{tikz/graphs/292_295_296_transmission/292d_cond_1.csv};
@@ -53,7 +53,7 @@
 
       \column{\dimexpr\linewidth / 21}
       \column{\dimexpr\linewidth / 21 * 10}
-        \scalebox{0.55}{
+        \scalebox{0.38}{
           \tikzsetnextfilename{pore_disorder_1}
           \begin{tikzpicture}
               \pgfdeclarelayer{bg}    % declare background layer
@@ -80,7 +80,7 @@
           \end{tikzpicture}}
         \pause
 
-        \scalebox{0.55}{
+        \scalebox{0.38}{
           \tikzsetnextfilename{pore_disorder_2}
           \begin{tikzpicture}
               \pgfdeclarelayer{bg}    % declare background layer
