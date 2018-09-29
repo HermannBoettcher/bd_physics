@@ -4,7 +4,7 @@
 
   \begin{frame}{Data evaluation - volumetrics}
     \begin{columns}[onlytextwidth, T]
-      \column{\dimexpr\linewidth / 3}
+      \column{\dimexpr\linewidth / 21 * 9}
         \scalebox{0.4}{
           \tikzsetnextfilename{vs_time_iso}
           \begin{tikzpicture}
@@ -64,22 +64,24 @@
           \end{tikzpicture}}
       \pause
 
-      \column{\dimexpr\linewidth / 3 * 2}
+      \column{\dimexpr\linewidth / 21}
+      \column{\dimexpr\linewidth / 21 * 11}
         \begin{block}{Computation}
-          \begin{itemize}
-            \begin{tiny}
-            \item The flow rate depends on the opening of the \textsc{Pfeiffer} microvalve.
-            \pause
+          \begin{tiny}
+            \begin{itemize}
+              \item The flow rate depends on the opening of the \textsc{Pfeiffer} microvalve
+              \pause
 
-            \item Empty cell: $\dot{n}^\mathrm{no}_\mathrm{mem}=\frac{V_\mathrm{cell}}{RT_\mathrm{cell}}\cdot\dot{P}_\mathrm{cell}$
-            \pause
+              \item Empty cell: $\dot{n}^\mathrm{no}_\mathrm{mem}=\frac{V_\mathrm{cell}}{RT_\mathrm{cell}}\cdot\dot{P}_\mathrm{cell}$
+              \pause
 
-            \item Flow rate conservation: $\dot{n}_\mathrm{mem}^\mathrm{no}(P_\mathrm{mem}^\mathrm{no}(t_\mathrm{mem}^\mathrm{no}))=\dot{n}_\mathrm{mem}(P_\mathrm{mem}(t_\mathrm{mem}))$
-            \pause
+              \item Flow rate conservation: $\dot{n}_\mathrm{mem}^\mathrm{no}(P_\mathrm{mem}^\mathrm{no}(t_\mathrm{mem}^\mathrm{no}))=\dot{n}_\mathrm{mem}(P_\mathrm{mem}(t_\mathrm{mem}))$
+              \pause
 
-            \item $n_\mathrm{mem}=\frac{V}{RT}\int^{t_\mathrm{mem}}_{0} \left( \dot{P}_\mathrm{mem}^\mathrm{no}(P_\mathrm{mem}^\mathrm{no}=P_\mathrm{mem}) - \dot{P}_\mathrm{mem}(P_\mathrm{mem}) \right)\mathrm{d}t_\mathrm{mem}'$
-            \end{tiny}
-          \end{itemize}
+              \item $n_\mathrm{mem}=\frac{V}{RT}\int^{t_\mathrm{mem}}_{0} \left( \dot{P}_\mathrm{mem}^\mathrm{no}(P_\mathrm{mem}^\mathrm{no}=P_\mathrm{mem}) - \dot{P}_\mathrm{mem}(P_\mathrm{mem}) \right)\mathrm{d}t_\mathrm{mem}'$
+
+            \end{itemize}
+          \end{tiny}
         \end{block}
         \pause
 
